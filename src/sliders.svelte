@@ -2,7 +2,6 @@
 import items from './items.js';
 import { Slidy } from 'svelte-slidy';
 import Spinner from './Spinner.svelte'
-import SpinNew from './SpinNew.svelte'
 
 let name = 'Slidy',
 			index,
@@ -47,11 +46,21 @@ let name = 'Slidy',
 			duration: 350,
 		}
 	}
+    
 </script>
 
-<Slidy {...slidy} bind:index bind:init>
+<Slidy {...slidy} bind:index bind:init let:item>
+    <div class="slide">
+        <img alt="{item.header}" src="{item.src}"/>
+        <article>
+            <h1>{item.header}</h1>
+            <p>
+                {item.text}
+            </p>
+        </article>
+    </div>
 	<span slot="loader">
-		<SpinNew />
+		<Spinner />
 	</span>
 </Slidy>
 
@@ -66,6 +75,20 @@ let name = 'Slidy',
 	@media screen and (max-width: 425px) {
 		:global(#slidy .slidy-ul li) {width: 100vw;}
 	}
-	h1 span {color: red}
-	h1 {text-align: center}
+    .slide {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+    }
+    article {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 </style>

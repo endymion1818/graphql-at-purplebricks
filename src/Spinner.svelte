@@ -1,50 +1,53 @@
 <script>
-    export let size = 75
-    export let speed = 550
-    export let color = 'red'
-    export let thickness = 1
-    export let gap = 25
-    export let radius = 10
-
-    let dash
-    $: dash = (2 * Math.PI * radius * (100 - gap)) / 100
+    let size = 50,
+        thickness = 3,
+        speed = 2000;
 </script>
 
-<svg
-    height="{size}"
-    width="{size}"
-    style="animation-duration:{speed}ms;"
-    class="svelte-spinner"
-    viewbox="0 0 32 32"
->
-    <circle
-        role="presentation"
-        cx="16"
-        cy="16"
-        r="{radius}"
-        stroke="{color}"
-        fill="none"
-        stroke-width="{thickness}"
-        stroke-dasharray="{dash},100"
-        stroke-linecap="round"
-    ></circle>
+<svg class="spinner" viewBox="0 0 50 50" width={size} height={size} style="--speed: {speed}ms">
+    <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width={thickness} />
 </svg>
 
 <style>
-    .svelte-spinner {
-        transition-property: transform;
-        animation-name: svelte-spinner_infinite-spin;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        position: relative;
-        z-index: 1000;
-    }
-    @keyframes svelte-spinner_infinite-spin {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
+	.spinner {
+		animation: rotate var(--speed) linear infinite;
+		-webkit-animation: rotate var(--speed) linear infinite;
+		z-index: 2;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -35px 0 0 -35px;
+		width: 70px;
+		height: 70px;
+	}
+
+	.spinner .path {
+/* 		stroke: hsl(210, 70, 75); */
+		stroke: red;
+		stroke-linecap: round;
+		animation: dash calc(var(--speed) / 1.33) ease-in-out infinite;
+		-webkit-animation: dash calc(var(--speed) / 1.33) ease-in-out infinite;
+	}
+
+
+	@keyframes rotate {
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes dash {
+		0% {
+			stroke-dasharray: 1, 150;
+			stroke-dashoffset: 0;
+		}
+		50% {
+			stroke-dasharray: 90, 150;
+			stroke-dashoffset: -35;
+		}
+		100% {
+			stroke-dasharray: 90, 150;
+			stroke-dashoffset: -124;
+		}
+	}
 </style>
