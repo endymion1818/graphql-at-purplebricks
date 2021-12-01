@@ -3,6 +3,10 @@ import items from './items.js';
 import { Slidy } from 'svelte-slidy';
 import Spinner from './Spinner.svelte'
 
+let styles = {
+    'article-bg': 'e9e9e9'
+}
+
 let name = 'Slidy',
 			index,
 			init = false
@@ -12,7 +16,6 @@ let name = 'Slidy',
 	const slidy = {
 		slides: items,
 		timeout: 1000,
-// 		index: 6,
 		wrap: {
 			id: 'slidy',
 			width: '100vw',
@@ -23,7 +26,7 @@ let name = 'Slidy',
 		},
 		slide: {
 			gap: 0,
-			width: '50vw',
+			width: '100vw',
 			height: '100vh',
 			backimg: false,
 			imgsrckey: 'src',
@@ -37,7 +40,7 @@ let name = 'Slidy',
 			dotspure: false,
 			arrows: false,
 			keys: true,
-			drag: true,
+			drag: false,
 			wheel: true,
 		},
 		options: {
@@ -51,12 +54,16 @@ let name = 'Slidy',
 
 <Slidy {...slidy} bind:index bind:init let:item>
     <div class="slide">
-        <img alt="{item.header}" src="{item.src}"/>
-        <article>
-            <h1>{item.header}</h1>
-            <p>
-                {item.text}
-            </p>
+        {#if item.src}
+            <img alt="{item.header}" src="{item.src}"/>
+        {/if}
+        <article class={item.background}>
+            <div class="article-content layout-{item.layout}">
+                <h1>{item.header}</h1>
+                <p>
+                    {item.text}
+                </p>
+            </div>
         </article>
     </div>
 	<span slot="loader">
@@ -76,19 +83,35 @@ let name = 'Slidy',
 		:global(#slidy .slidy-ul li) {width: 100vw;}
 	}
     .slide {
-        position: relative;
+        position: absolute;
         height: 100vh;
         width: 100vw;
     }
+    img,
+    .background,
     article {
         position: absolute;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
+    }
+    article {
+        height: 100vh;
+        width: 100vw;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        margin: auto;
+    }
+    article.dark {
+        background-color: #333333;
+        color: white;
+    }
+    .article-content {
+        margin: auto;
+    }
+    .layout-2col {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
     }
 </style>
