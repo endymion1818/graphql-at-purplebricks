@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Sliders from "./sliders.svelte";
+	import Sliders from "./Sliders.svelte";
 
 	export let name: string;
 </script>
@@ -9,9 +9,11 @@
 </main>
 
 <style>
+	:global(body) {
+		padding: 0;
+	}
 	main {
 		text-align: center;
-		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
 	}

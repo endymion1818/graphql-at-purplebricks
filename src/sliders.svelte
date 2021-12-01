@@ -16,8 +16,8 @@ let name = 'Slidy',
 // 		index: 6,
 		wrap: {
 			id: 'slidy',
-			width: '100%',
-			height: '50vh',
+			width: '100vw',
+			height: '100vh',
 			padding: '0',
 			align: 'middle',
 			alignmargin: 0,
@@ -25,7 +25,7 @@ let name = 'Slidy',
 		slide: {
 			gap: 0,
 			width: '50vw',
-			height: '100%',
+			height: '100vh',
 			backimg: false,
 			imgsrckey: 'src',
 			objectfit: 'cover',
@@ -36,20 +36,19 @@ let name = 'Slidy',
 			dotsnum: true,
 			dotsarrow: true,
 			dotspure: false,
-			arrows: true,
+			arrows: false,
 			keys: true,
 			drag: true,
 			wheel: true,
 		},
 		options: {
-			axis: 'x',
-			loop: true,
+			axis: 'y',
+			loop: false,
 			duration: 350,
 		}
 	}
 </script>
 
-<h1>Hello <span>{name}</span>!</h1>
 <Slidy {...slidy} bind:index bind:init>
 	<span slot="loader">
 		<SpinNew />
@@ -62,7 +61,7 @@ let name = 'Slidy',
 		transform: translateX(-50%)
 	}
 	@media screen and (min-width: 900px) {
-		:global(#slidy .slidy-ul li) {width: 33vw;}
+		:global(#slidy .slidy-ul li) {width: 100vw;}
 	}
 	@media screen and (max-width: 425px) {
 		:global(#slidy .slidy-ul li) {width: 100vw;}
