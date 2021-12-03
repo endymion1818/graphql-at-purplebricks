@@ -11,7 +11,7 @@ let name = 'Slidy',
 			index,
 			init = false
 	
-	$: init && (index = 2)
+	$: init && (index = 0)
 	
 	const slidy = {
 		slides: items,
