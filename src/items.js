@@ -98,13 +98,6 @@ export default [
         screenshot: './fetch-more.png'
     },
     {
-        id: 14, 
-        header: '4. Error handling',
-        layout: 'center',
-        background: 'dark',
-        text: 'GraphQL errors often return as http status 200. You will have an errors array returned which you can use to inform the user whats happening or redirect them as appropriate. You can pass a parameter to useQuery to decide what to do with errors, either return what data you did receive so you can render a partial response, or to dismiss the data altogether.'
-    },
-    {
         id: 15, 
         header: '4. Error handling',
         layout: 'center',
