@@ -49,20 +49,34 @@ let name = 'Slidy',
 			duration: 350,
 		}
 	}
-    
 </script>
 
 <Slidy {...slidy} bind:index bind:init let:item>
     <div class="slide">
         {#if item.src}
-            <img alt="{item.header}" src="{item.src}"/>
+            <img class="bg-image" alt="{item.header}" src="{item.src}"/>
         {/if}
         <article class={item.background}>
             <div class="article-content layout-{item.layout}">
-                <h1>{item.header}</h1>
-                <p>
-                    {item.text}
-                </p>
+                <div>
+                    {#if item.header}
+                        <h1>{item.header}</h1>
+                        <hr/>
+                    {/if}
+                    {#if item.text}
+                    <p>
+                        {item.text}
+                    </p>
+                    {/if}
+                    {#if item.screenshot}
+                        <img class="bg-image" alt="{item.header}" src="{item.screenshot}"/>
+                    {/if}
+                    {#if item.html}
+                        <div class="htmlcontent">
+                            {@html item.html}    
+                        </div>
+                    {/if}
+                </div>
             </div>
         </article>
     </div>
@@ -87,7 +101,6 @@ let name = 'Slidy',
         height: 100vh;
         width: 100vw;
     }
-    img,
     .background,
     article {
         position: absolute;
@@ -96,11 +109,15 @@ let name = 'Slidy',
         bottom: 0;
         right: 0;
     }
+    h1 {
+        font-size: 1.8rem;
+    }
     article {
         height: 100vh;
         width: 100vw;
         display: flex;
         margin: auto;
+        color: #333333;
     }
     article.dark {
         background-color: #333333;
@@ -108,10 +125,19 @@ let name = 'Slidy',
     }
     .article-content {
         margin: auto;
+        padding: 2rem;
+    }
+    @media (min-width: 776px) {
+        .article-content {
+            padding: 4rem;
+        }
     }
     .layout-2col {
         display: flex;
         flex-direction: row;
         gap: 2rem;
+    }
+    .htmlcontent {
+        text-align: left;
     }
 </style>
