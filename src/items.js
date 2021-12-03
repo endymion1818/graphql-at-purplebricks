@@ -55,7 +55,7 @@ export default [
         text: 'To use graphql, you pass a request body, plus variables and other data pertinent to the request',
         screenshot: './basic-query.png',
         layout: 'center',
-        background: 'dark'
+        background: 'light'
     },
     {
         id: 9, 
@@ -63,13 +63,33 @@ export default [
         text: 'Here is a basic query. None of these field are required, and there are others such as properties, threads etc that you can add. Use https://qa.pbr.so/graphql or Insomnia to discover what is available',
         screenshot: './user-query.png',
         layout: 'center',
-        background: 'dark'
+        background: 'light'
     },
     {
         id: 10, 
         header: '2. Query variables',
         text: 'Query variables',
         layout: 'center',
-        background: 'dark'
+        background: 'light',
+        text: 'query variables are passed into the query using the dollar sign:',
+        screenshot: './variables-1.png'
+    },
+    {
+        id: 11, 
+        header: '2. Using query variables',
+        text: 'Query variables',
+        layout: 'center',
+        background: 'light',
+        text: 'They must comply to the type that the GraphQL endpoint is expecting, but can be named anything. You need to declare the type when you pass it into the GraphQL query.',
+        screenshot: './variables-2.png'
+    },
+    {
+        id: 12, 
+        header: '3. Other useful things useQuery can do',
+        layout: 'center',
+        background: 'light',
+        text: 'useQuery has some other useful parameters, such as polling, a callback for when the fetch is complete, and how errors are handled. You also use it to fetch more data',
+        html: '<pre><code>fetchMore</pre></code> is available on the initial <pre><code>useQuery</pre></code> response.',
+        screenshot: './fetch-more.png'
     },
 ]

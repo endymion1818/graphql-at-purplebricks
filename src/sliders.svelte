@@ -126,11 +126,7 @@ let name = 'Slidy',
     .article-content {
         margin: auto;
         padding: 2rem;
-    }
-    @media (min-width: 776px) {
-        .article-content {
-            padding: 4rem;
-        }
+        max-width: 60rem;
     }
     .layout-2col {
         display: flex;
@@ -139,5 +135,13 @@ let name = 'Slidy',
     }
     .htmlcontent {
         text-align: left;
+    }
+    @media (min-width: 776px) {
+        :global(body) {
+            font-size: 28px;
+        }
+        .article-content {
+            padding: 4rem;
+        }
     }
 </style>
