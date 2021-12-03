@@ -1,11 +1,11 @@
 <script lang="ts">
-	import Sliders from "./Sliders.svelte";
+	import Slider from "./Slider.svelte";
 
 	export let name: string;
 </script>
 
 <main>
-	<Sliders/>
+	<Slider />
 </main>
 
 <style>
