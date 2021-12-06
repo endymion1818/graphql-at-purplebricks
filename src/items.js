@@ -28,7 +28,7 @@ export default [
     {
         id: 5, 
         header: '1. Terminology (continued)',
-        html: '<h2>connection</h2><p>a relationship between one node and another</p><h2>edge</h2><p>the relationship between the originating node and its relatives</p><h2>node</h2><p>an object situated at the end of that edge</p>',
+        html: '<h2>connection</h2><p>a relationship between one node and another</p><h2>edge</h2><p>the relationship between the originating node and its relatives</p><h2>node</h2><p>an object situated at the end of that edge</p><br/>For more information on these terms, please see <a href="https://www.apollographql.com/blog/graphql/explaining-graphql-connections/#de1c">This blog post from Apollo GraphQL</a>',
         layout: 'center',
         background: 'dark'
     },

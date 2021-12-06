@@ -15,4 +15,9 @@
 	main {
 		margin: 0 auto;
 	}
+	:global(a) {
+        color: #e11098;
+        text-decoration: underline;
+        text-decoration-skip-ink: auto;
+    }
 </style>
