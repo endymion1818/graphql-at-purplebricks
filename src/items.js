@@ -52,6 +52,7 @@ export default [
         header: '2. The connection - tips for use,',
         text: 'Don\'t use this in _App.js. Although this is the recommended way, it breaks our infrastructure somehow. So you will need to initiate a new provider for each page. Any GraphQL queries need to be inside this parent component. Also don\'t use on pages with SSR. If you need a graphql connection on a page with SSR use @next/dynamic to load the component in on the client only.',
         layout: 'center',
+        screenshot: './dynamic-import.png',
         background: 'dark'
     },
     {
