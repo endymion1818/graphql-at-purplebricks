@@ -28,7 +28,7 @@ export default [
     {
         id: 5, 
         header: '1. Terminology (continued)',
-        html: '<h2>connection</h2><p>a relationship between one node and another</p><h2>edge</h2><p>the relationship between the originating node and its relatives</p><h2>node</h2><p>an object situated at the end of that edge</p><br/>For more information on these terms, please see <a href="https://www.apollographql.com/blog/graphql/explaining-graphql-connections/#de1c">This blog post from Apollo GraphQL</a>',
+        html: '<h2>connection</h2><p>a relationship between one node and another (eg. as authors are to book)</p><h2>edge</h2><p>the relationship between the originating node and its relatives (eg. the author / authors of a specific book</p><h2>node</h2><p>an object situated at the end of that edge</p><br/>For more information on these terms, please see <a href="https://www.apollographql.com/blog/graphql/explaining-graphql-connections/#de1c">This blog post from Apollo GraphQL</a>',
         layout: 'center',
         background: 'dark'
     },
@@ -103,7 +103,8 @@ export default [
         header: '4. Error handling',
         layout: 'center',
         background: 'dark',
-        text: 'GraphQL errors often return as http status 200. You will have an errors array returned which you can use to inform the user whats happening or redirect them as appropriate. You can pass a parameter to useQuery to decide what to do with errors, either return what data you did receive so you can render a partial response, or to dismiss the data altogether.'
+        screenshot: './errors.png',
+        text: 'GraphQL errors return as http status 200. You will have an errors array returned which you can use to inform the user whats happening or redirect them as appropriate. You can pass a parameter to useQuery to decide what to do with errors, either return what data you did receive so you can render a partial response, or to dismiss the data altogether.'
     },
     {
         id: 16, 
